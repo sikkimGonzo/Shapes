@@ -1,10 +1,10 @@
 using ShapesLib;
 
-public class Shape : IShape
+public class ShapeController
 {
     private readonly IShape _shape;
 
-    public Shape(IShape shape)
+    public ShapeController(IShape shape)
     {
         _shape = shape;
     }

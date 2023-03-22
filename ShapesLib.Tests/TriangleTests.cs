@@ -12,7 +12,7 @@ public class TriangleTests
         double c = 4;
         double expected = 2.90;
 
-        Shape triangle = new Shape(new Triangle(a, b, c));
+        ShapeController triangle = new ShapeController(new Triangle(a, b, c));
 
         Assert.Equal(expected, Math.Round(triangle.GetArea(), 2));
     }
@@ -35,7 +35,7 @@ public class TriangleTests
     {
         bool expected = false;
 
-        Shape triangle = new Shape(new Triangle(a, b, c));
+        ShapeController triangle = new ShapeController(new Triangle(a, b, c));
 
         Assert.Equal(expected, triangle.IsCorrectInput());
     }
@@ -53,8 +53,8 @@ public class TriangleTests
     {
         bool expected = true;
 
-        ITriangle triangle = new Triangle(a, b, c);
+        TirangleController tc = new TirangleController(new Triangle(a, b, c));
 
-        Assert.Equal(expected, triangle.IsRectangular());
+        Assert.Equal(expected, tc.IsRectangular());
     }
 }

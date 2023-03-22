@@ -10,7 +10,7 @@ public class CircleTests
         double radius = 4;
         double expected = 50.27;
 
-        Shape circle = new Shape(new Circle(radius));
+        ShapeController circle = new ShapeController(new Circle(radius));
 
         Assert.Equal(expected, Math.Round(circle.GetArea(), 2));
     }
@@ -20,7 +20,7 @@ public class CircleTests
     [InlineData(-1)]
     public void IsCorrectInput(double radius)
     {
-        Shape circle = new Shape(new Circle(radius));
+        ShapeController circle = new ShapeController(new Circle(radius));
 
         bool expected = false;
 
