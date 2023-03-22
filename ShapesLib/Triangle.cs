@@ -24,10 +24,10 @@ public class Triangle : ITriangle
 
     public bool IsRectangular()
     {
-        // if(!IsCorrectInput())
-        // {
-        //     throw new ArgumentException();
-        // }
+        if(!IsCorrectInput())
+        {
+            throw new ArgumentException();
+        }
         double hypotenuse = Math.Max(Math.Max(A, B), C);
         return GetArea() == (A * B * C) / (2 * hypotenuse);
     }
