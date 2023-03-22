@@ -1,5 +1,7 @@
 using ShapesLib;
 
+// Класс для демонстрации DI шаблона
+// В целом можно обойтись созданием объектов через IShape
 public class Shape : IShape
 {
     private readonly IShape _shape;
