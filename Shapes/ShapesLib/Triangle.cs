@@ -2,21 +2,21 @@ namespace ShapesLib;
 
 public class Triangle : Shape
 {
-    public readonly double _a;
+    public double EdgeA { get; init; }
 
-    public readonly double _b;
+    public double EdgeB { get; init; }
 
-    public readonly double _c;
+    public double EdgeC { get; init; }
 
-    public Triangle(double a, double b, double c)
+    public Triangle(double edgeA, double edgeB, double edgeC)
     {
         var sumOfTwoSidesIsGreaterThanThird = 
-            a + b > c && a + c > b && c + b > a;
+            edgeA + edgeB > edgeC && edgeA + edgeC > edgeB && edgeC + edgeB > edgeA;
         if(sumOfTwoSidesIsGreaterThanThird)
         {
-            _a = a;
-            _b = b;
-            _c = c;
+            EdgeA = edgeA;
+            EdgeB = edgeB;
+            EdgeC = edgeC;
         }
         else
         {
@@ -26,15 +26,15 @@ public class Triangle : Shape
 
     public override double GetArea()
     {
-        double p = (_a + _b + _c) / 2;
-        return Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
+        double p = (EdgeA + EdgeB + EdgeC) / 2;
+        return Math.Sqrt(p * (p - EdgeA) * (p - EdgeB) * (p - EdgeC));
     }
 
     public bool IsRectangular()
     {
         double eps = 1e-9;
-        double hypotenuse = Math.Max(Math.Max(_a, _b), _c);
-        double rectanularArea = (_a * _b * _c) / (2 * hypotenuse);
+        double hypotenuse = Math.Max(Math.Max(EdgeA, EdgeB), EdgeC);
+        double rectanularArea = (EdgeA * EdgeB * EdgeC) / (2 * hypotenuse);
         return Math.Abs(GetArea() - rectanularArea) < eps;
     }
 }

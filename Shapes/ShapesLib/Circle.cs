@@ -2,13 +2,13 @@ namespace ShapesLib;
 
 public class Circle : Shape
 {
-    public readonly double _radius;
+    public double Radius { get; init; }
 
     public Circle(double radius)
     {
         if(radius > 0)
         {
-            _radius = radius;
+            Radius = radius;
         }
         else
         {
@@ -17,5 +17,5 @@ public class Circle : Shape
     }
 
     public override double GetArea()
-        => Math.Pow(_radius, 2) * Math.PI;
+        => Math.Pow(Radius, 2) * Math.PI;
 }
