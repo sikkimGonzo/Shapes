@@ -1,3 +1,5 @@
+using ShapesLib.Exceptions;
+
 namespace ShapesLib;
 
 public class Circle : Shape
@@ -12,7 +14,7 @@ public class Circle : Shape
         }
         else
         {
-            throw new ArgumentException("Circle is not exist");
+            throw new CircleDoesNotExistException();
         }
     }
 

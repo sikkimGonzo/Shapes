@@ -1,3 +1,5 @@
+using ShapesLib.Exceptions;
+
 namespace ShapesLib;
 
 public class Triangle : Shape
@@ -20,7 +22,7 @@ public class Triangle : Shape
         }
         else
         {
-            throw new ArgumentException("Triangle is not exist");
+            throw new TriangleDoesNotExistException();
         }
     }
 
@@ -32,9 +34,8 @@ public class Triangle : Shape
 
     public bool IsRectangular()
     {
-        double eps = 1e-9;
         double hypotenuse = Math.Max(Math.Max(EdgeA, EdgeB), EdgeC);
         double rectanularArea = (EdgeA * EdgeB * EdgeC) / (2 * hypotenuse);
-        return Math.Abs(GetArea() - rectanularArea) < eps;
+        return Math.Abs(GetArea() - rectanularArea) < ShapeCalculationAccuracy.Eps;
     }
 }
