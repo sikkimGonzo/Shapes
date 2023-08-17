@@ -14,7 +14,7 @@ public class Circle : Shape
         }
         else
         {
-            throw new CircleDoesNotExistException();
+            throw new CircleDoesNotExistException(radius);
         }
     }
 
