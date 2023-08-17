@@ -22,7 +22,7 @@ public class Triangle : Shape
         }
         else
         {
-            throw new TriangleDoesNotExistException();
+            throw new TriangleDoesNotExistException(edgeA, edgeB, edgeC);
         }
     }
 
@@ -35,7 +35,9 @@ public class Triangle : Shape
     public bool IsRectangular()
     {
         double hypotenuse = Math.Max(Math.Max(EdgeA, EdgeB), EdgeC);
-        double rectanularArea = (EdgeA * EdgeB * EdgeC) / (2 * hypotenuse);
-        return Math.Abs(GetArea() - rectanularArea) < ShapeCalculationAccuracy.Eps;
+        double legA = Math.Min(Math.Min(EdgeA, EdgeB), EdgeC);
+        double legB = Math.Min(Math.Max(EdgeA, EdgeB), EdgeC);
+        double legSquareSum = Math.Pow(legA, 2) + Math.Pow(legB, 2);
+        return Math.Abs(Math.Pow(hypotenuse, 2) - legSquareSum) < ShapeCalculationAccuracy.Eps;
     }
 }
